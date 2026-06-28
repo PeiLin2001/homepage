@@ -1,0 +1,329 @@
+/* clear */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* color variable */
+:root {
+  --color-text-primary: #1a1a1a;
+  --color-text-secondary: #888;
+  --color-text-tertiary: #bbb;
+  --color-border: #e5e5e5;
+  --color-bg-primary: #ffffff;
+  --color-bg-secondary: #f7f7f5;
+
+  --font-sans: 'Inter', sans-serif;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-style: normal;
+}
+
+.bg-canvas{
+    display: flex;
+    justify-content: space-between;
+    z-index: -1;
+    position: absolute;
+    top: 0;
+    width:100vw;
+}
+
+.content{
+  margin: 20px 80px;
+}
+
+.about-header{
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 108px;
+  align-items: baseline;
+}
+
+.about-title{
+  color: var(--color-text-secondary);
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 15%;
+  padding: 10px;
+}
+
+.about-right {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  flex: 1;
+}
+
+.email{
+  margin-bottom: 30vh;
+  display: flex;
+  justify-content: center;
+}
+
+.material-symbols-outlined {
+  font-family: 'Material Symbols Outlined';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+
+  padding-top:2.5px;
+  margin-right:8px;
+
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+
+  /* Support for all WebKit browsers. */
+  -webkit-font-smoothing: antialiased;
+  /* Support for Safari and Chrome. */
+  text-rendering: optimizeLegibility;
+
+  /* Support for Firefox. */
+  -moz-osx-font-smoothing: grayscale;
+
+  /* Support for IE. */
+  font-feature-settings: 'liga';
+}
+
+.material-symbols-outlined {
+  font-variation-settings:
+  'FILL' 1,
+  'wght' 300,
+  'GRAD' 0,
+  'opsz' 12
+}
+
+.email a{
+  color: var(--color-text-secondary);
+  font-size: 20px;
+  font-weight: 300;
+  letter-spacing: 14%;
+  text-decoration: none;
+  letter-spacing: 14%;
+}
+
+.name{
+  color: var(--color-text-primary);
+  font-size: 120px;
+  font-weight: 500;
+}
+
+.loc-tag{
+  color: var(--color-text-primary);
+  background-color:  rgba(var(--color-bg-primary), 0.3);
+  border: 0.5px solid var(--color-border);
+  backdrop-filter: blur(1px);
+
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: 5%;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 36px;
+
+  margin: 16px 0px;
+  border-radius: 999px;
+}
+
+.loc-tag:hover{
+  cursor: pointer;
+}
+
+
+.dots {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-text-tertiary);
+
+}
+
+/* 以上是上半部的內容 */
+/* 以下是中間部分的內容 */
+
+.bio{
+  color: var(--color-text-primary);
+  font-size: 32px;
+  font-weight: 300;
+  text-align: right;
+
+  background-color:  rgba(var(--color-bg-primary), 0.3);
+  backdrop-filter: blur(1px);
+}
+
+.section-label{
+  color: var(--color-text-secondary);
+  font-size: 21px;
+  letter-spacing: 15%;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+}
+
+.middle{
+  margin: 120px 0px;
+}
+
+.info-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* 六格 */
+  align-items: baseline;
+
+}
+
+/* 上排一個cell佔三格 */
+#education    { grid-column: span 3; }
+#future-goal  { grid-column: span 3; }
+
+/* 下排一個cell佔兩格 */
+#skill        { grid-column: span 2; }
+#hobby        { grid-column: span 2; }
+#language     { grid-column: span 2; }
+
+.info-cell{
+  margin:32px 16px;
+  letter-spacing: 14%;
+
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  color: var(--color-text-primary);
+  background-color:  rgba(var(--color-bg-primary), 0.3);
+  backdrop-filter: blur(1px);
+}
+
+.info-cell::before {
+    content: "";
+    position: absolute;
+    left: 0px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background-color: var(--color-text-tertiary);
+    z-index: 1;
+}
+
+.cell-title{
+  color: var(--color-text-secondary);
+  font-size: 20px;
+  font-weight: 500;
+
+  height: 44px;
+  align-items: baseline;
+}
+
+.cell-body{
+  color: var(--color-text-primary);
+  font-size: 16px;
+  font-weight: 500;
+
+  height: 72px;
+  line-height: 1.7;
+}
+
+.lang-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 8px;
+}
+
+.lang-name {
+  width: 80px;
+  flex-shrink: 0;
+
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+}
+
+.lang-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--color-border);  /* 灰色軌道 */
+  border-radius: 99px;
+  flex-grow:1;
+}
+
+.lang-fill {
+  height: 8px;
+  background: var(--color-text-primary);  /* 深色填充 */
+  border-radius: 99px;
+  flex-grow:1;
+}
+
+/* experience 區塊 */
+/* 讓容器變成相對定位，作為紅線的基準 */
+.experience {
+    position: relative;
+    letter-spacing: 14%;
+
+    background-color:  rgba(var(--color-bg-primary), 0.3);
+    backdrop-filter: blur(1px);
+}
+
+/* 繪製那一條貫穿的紅線 */
+.experience::before {
+    content: "";
+    position: absolute;
+    /* 調整 left 的數值，使其剛好對準時間與文字中間 */
+    /* 依照 grid 設定 (120px + gap)，大約在 132px 左右 */
+    left: 132px;
+    top: 60px;    /* 從第一個項目的標題位置開始 */
+    bottom: 0;    /* 延伸到最底部 */
+    width: 2px;   /* 線條寬度 */
+    background-color: var(--color-text-tertiary);
+    z-index: 1;
+}
+
+
+.exp-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  height: 40vh;
+  gap: 24px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+
+
+.exp-time {
+  font-size: 20px;
+  color: var(--color-text-primary);
+  padding-top: 2px;
+}
+
+.exp-body {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text-primary);
+  padding-left: 24px;
+}
+
+
+.exp-title {
+  font-size: 20px;
+  font-weight: 500;
+  color: var(--color-text-secondary);
+  margin-bottom: 16px;
+}
+
+.exp-desc {
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-text-primary);
+  line-height: 1.8;
+}
