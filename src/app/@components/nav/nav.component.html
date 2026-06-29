@@ -1,13 +1,12 @@
-<!-- nav.html -->
-<nav class = "the-cool-bar">
-  <div class = "nav-head">
-    <button class = "logo" onclick="location.href = 'index.html' ">Pei-Lin Li</button>
+<nav class="the-cool-bar">
+  <div class="nav-head">
+    <button class="logo" onclick="location.href = 'index.html' ">Pei-Lin Li</button>
   </div>
   <div class="nav-body">
-    <button class="nav-btn" [routerLink]="['/homepage']">home</button>
-    <button class="nav-btn" [routerLink]="['/works']">works</button>
-    <button class="nav-btn" [routerLink]="['/about']">about</button>
-    <button class="nav-btn" [routerLink]="['/writing']">writing</button>
-    <button class="nav-btn" [routerLink]="['/contact']">contact</button>
+    <button class="nav-btn" [routerLink]="['/homepage']" routerLinkActive="active">home</button>
+    <button class="nav-btn" [routerLink]="['/works']" routerLinkActive="active">works</button>
+    <button class="nav-btn" [routerLink]="['/about']" routerLinkActive="active">about</button>
+    <button class="nav-btn" [routerLink]="['/writing']" routerLinkActive="active">writing</button>
+    <button class="nav-btn" [routerLink]="['/contact']" routerLinkActive="active">contact</button>
   </div>
 </nav>
