@@ -1,5 +1,7 @@
 /* clear */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -14,38 +16,38 @@
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f7f7f5;
 
-  --font-sans: 'Inter', sans-serif;
+  --font-sans: "Inter", sans-serif;
   --radius-md: 8px;
   --radius-lg: 12px;
 }
 
 body {
-    font-family: "Inter", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
+  font-family: "Inter", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
 }
 
-.bg-canvas{
-    display: flex;
-    justify-content: space-between;
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    width:100vw;
+.bg-canvas {
+  display: flex;
+  justify-content: space-between;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  width: 100vw;
 }
 
-.content{
-  margin: 20px 80px;
+.content {
+  margin: 20px 80px 80px 80px;
 }
 
-.about-header{
+.about-header {
   display: flex;
   justify-content: space-between;
   margin-bottom: 108px;
   align-items: baseline;
 }
 
-.about-title{
+.about-title {
   color: var(--color-text-secondary);
   font-size: 24px;
   font-weight: 500;
@@ -60,20 +62,20 @@ body {
   flex: 1;
 }
 
-.email{
+.email {
   margin-bottom: 30vh;
   display: flex;
   justify-content: center;
 }
 
 .material-symbols-outlined {
-  font-family: 'Material Symbols Outlined';
+  font-family: "Material Symbols Outlined";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
 
-  padding-top:2.5px;
-  margin-right:8px;
+  padding-top: 2.5px;
+  margin-right: 8px;
 
   text-transform: none;
   letter-spacing: normal;
@@ -90,18 +92,18 @@ body {
   -moz-osx-font-smoothing: grayscale;
 
   /* Support for IE. */
-  font-feature-settings: 'liga';
+  font-feature-settings: "liga";
 }
 
 .material-symbols-outlined {
   font-variation-settings:
-  'FILL' 1,
-  'wght' 300,
-  'GRAD' 0,
-  'opsz' 12
+    "FILL" 1,
+    "wght" 300,
+    "GRAD" 0,
+    "opsz" 12;
 }
 
-.email a{
+.email a {
   color: var(--color-text-secondary);
   font-size: 20px;
   font-weight: 300;
@@ -110,15 +112,21 @@ body {
   letter-spacing: 14%;
 }
 
-.name{
+.name {
   color: var(--color-text-primary);
   font-size: 120px;
   font-weight: 500;
+  width: 282.178px;
 }
 
-.loc-tag{
+h1 {
+  margin-block-end: 0.67rem;
+  margin-bottom: 0.5rem;
+}
+
+.loc-tag {
   color: var(--color-text-primary);
-  background-color:  rgba(var(--color-bg-primary), 0.3);
+  background-color: rgba(var(--color-bg-primary), 0.3);
   border: 0.5px solid var(--color-border);
   backdrop-filter: blur(1px);
 
@@ -135,10 +143,9 @@ body {
   border-radius: 999px;
 }
 
-.loc-tag:hover{
+.loc-tag:hover {
   cursor: pointer;
 }
-
 
 .dots {
   display: inline-block;
@@ -146,23 +153,22 @@ body {
   height: 6px;
   border-radius: 50%;
   background: var(--color-text-tertiary);
-
 }
 
 /* 以上是上半部的內容 */
 /* 以下是中間部分的內容 */
 
-.bio{
+.bio {
   color: var(--color-text-primary);
   font-size: 32px;
   font-weight: 300;
   text-align: right;
 
-  background-color:  rgba(var(--color-bg-primary), 0.3);
+  background-color: rgba(var(--color-bg-primary), 0.3);
   backdrop-filter: blur(1px);
 }
 
-.section-label{
+.section-label {
   color: var(--color-text-secondary);
   font-size: 21px;
   letter-spacing: 15%;
@@ -170,7 +176,7 @@ body {
   margin-bottom: 24px;
 }
 
-.middle{
+.middle {
   margin: 120px 0px;
 }
 
@@ -178,20 +184,29 @@ body {
   display: grid;
   grid-template-columns: repeat(6, 1fr); /* 六格 */
   align-items: baseline;
-
 }
 
 /* 上排一個cell佔三格 */
-#education    { grid-column: span 3; }
-#future-goal  { grid-column: span 3; }
+#education {
+  grid-column: span 3;
+}
+#future-goal {
+  grid-column: span 3;
+}
 
 /* 下排一個cell佔兩格 */
-#skill        { grid-column: span 2; }
-#hobby        { grid-column: span 2; }
-#language     { grid-column: span 2; }
+#skill {
+  grid-column: span 2;
+}
+#hobby {
+  grid-column: span 2;
+}
+#language {
+  grid-column: span 2;
+}
 
-.info-cell{
-  margin:32px 16px;
+.info-cell {
+  margin: 32px 16px;
   letter-spacing: 14%;
 
   padding: 24px;
@@ -200,22 +215,22 @@ body {
   justify-content: center;
 
   color: var(--color-text-primary);
-  background-color:  rgba(var(--color-bg-primary), 0.3);
+  background-color: rgba(var(--color-bg-primary), 0.3);
   backdrop-filter: blur(1px);
 }
 
 .info-cell::before {
-    content: "";
-    position: absolute;
-    left: 0px;
-    top: 8px;
-    bottom: 8px;
-    width: 2px;
-    background-color: var(--color-text-tertiary);
-    z-index: 1;
+  content: "";
+  position: absolute;
+  left: 0px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background-color: var(--color-text-tertiary);
+  z-index: 1;
 }
 
-.cell-title{
+.cell-title {
   color: var(--color-text-secondary);
   font-size: 20px;
   font-weight: 500;
@@ -224,7 +239,7 @@ body {
   align-items: baseline;
 }
 
-.cell-body{
+.cell-body {
   color: var(--color-text-primary);
   font-size: 16px;
   font-weight: 500;
@@ -252,42 +267,41 @@ body {
 .lang-bar {
   flex: 1;
   height: 8px;
-  background: var(--color-border);  /* 灰色軌道 */
+  background: var(--color-border); /* 灰色軌道 */
   border-radius: 99px;
-  flex-grow:1;
+  flex-grow: 1;
 }
 
 .lang-fill {
   height: 8px;
-  background: var(--color-text-primary);  /* 深色填充 */
+  background: var(--color-text-primary); /* 深色填充 */
   border-radius: 99px;
-  flex-grow:1;
+  flex-grow: 1;
 }
 
 /* experience 區塊 */
 /* 讓容器變成相對定位，作為紅線的基準 */
 .experience {
-    position: relative;
-    letter-spacing: 14%;
+  position: relative;
+  letter-spacing: 14%;
 
-    background-color:  rgba(var(--color-bg-primary), 0.3);
-    backdrop-filter: blur(1px);
+  background-color: rgba(var(--color-bg-primary), 0.3);
+  backdrop-filter: blur(1px);
 }
 
 /* 繪製那一條貫穿的紅線 */
 .experience::before {
-    content: "";
-    position: absolute;
-    /* 調整 left 的數值，使其剛好對準時間與文字中間 */
-    /* 依照 grid 設定 (120px + gap)，大約在 132px 左右 */
-    left: 132px;
-    top: 60px;    /* 從第一個項目的標題位置開始 */
-    bottom: 0;    /* 延伸到最底部 */
-    width: 2px;   /* 線條寬度 */
-    background-color: var(--color-text-tertiary);
-    z-index: 1;
+  content: "";
+  position: absolute;
+  /* 調整 left 的數值，使其剛好對準時間與文字中間 */
+  /* 依照 grid 設定 (120px + gap)，大約在 132px 左右 */
+  left: 132px;
+  top: 60px; /* 從第一個項目的標題位置開始 */
+  bottom: 0; /* 延伸到最底部 */
+  width: 2px; /* 線條寬度 */
+  background-color: var(--color-text-tertiary);
+  z-index: 1;
 }
-
 
 .exp-item {
   display: grid;
@@ -297,8 +311,6 @@ body {
   align-items: center;
   margin-bottom: 60px;
 }
-
-
 
 .exp-time {
   font-size: 20px;
@@ -313,7 +325,6 @@ body {
   padding-left: 24px;
 }
 
-
 .exp-title {
   font-size: 20px;
   font-weight: 500;
@@ -326,4 +337,8 @@ body {
   font-weight: 400;
   color: var(--color-text-primary);
   line-height: 1.8;
+}
+
+p {
+  margin-bottom: 1rem;
 }

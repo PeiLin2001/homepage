@@ -81,8 +81,14 @@ h1{
     background-color: transparent;
 }
 
-.btn{
+.cta-wrapper{
   display: flex;
   gap: .3rem;
+  // justify-content: space-between;
   padding: 0;
+  outline: none;
+  color: none;
+  // width: fit-content;
 }
+
+
