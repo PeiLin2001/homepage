@@ -59,7 +59,6 @@ export class WorksComponent {
   startIndex = 0;
   displayedCount = 3;
 
-
   decreasePage() {
     if (this.startIndex > 0) {
       this.startIndex--;
@@ -67,28 +66,26 @@ export class WorksComponent {
   }
 
   increasePage() {
-    if((this.works.length - this.startIndex) <= this.displayedCount){
-      return;
+    if (this.startIndex < this.works.length - this.displayedCount) {
+      this.startIndex++;
     }
+  }
 
-    this.startIndex++;
+  get transformOffset(): string {
+    const gap = 20;
+
+    const cardPercent = 100 / this.displayedCount;
+    const gapCompensation =
+      ((this.displayedCount - 1) * gap) / this.displayedCount;
+
+    const movePercent = this.startIndex * cardPercent;
+    const movePx = this.startIndex * (gap - gapCompensation);
+
+    return `translateX(calc(-${movePercent}% - ${movePx}px))`;
   }
 
   get displayedWorks(): Work[] {
     const endIndex = this.startIndex + this.displayedCount;
     return this.works.slice(this.startIndex, endIndex);
   }
-
-  // filters: ('all' | Category)[] = ['all', 'front-end', 'fullstack'];
-  // selectedFilter: 'all' | Category = 'all';
-
-  // get filteredWorks(): Work[] {
-  //   return this.selectedFilter === 'all'
-  //     ? this.works
-  //     : this.works.filter((w) => w.category === this.selectedFilter);
-  // }
-
-  // setFilter(filter: 'all' | Category): void {
-  //   this.selectedFilter = filter;
-  // }
 }

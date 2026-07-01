@@ -1,5 +1,4 @@
-/* ── Header ── */
-.works-header {
+.worksHeader {
   margin-top: 70px;
 }
 
@@ -10,56 +9,42 @@
   padding: 10px;
 }
 
-/* ── Filter btn ── */
-
-.filter {
-  display: flex;
-  gap: 0;
-}
-
-.works-filter-button {
-  appearance: none;
-  -webkit-appearance: none;
-  margin-right: 14px;
-  padding: 9px 21px;
-  border-radius: var(--radius-lg);
-  border: 1px solid var(--color-text-secondary);
-  background-color: var(--color-bg-primary);
-  cursor: pointer;
-  transition: background-color 0.2s ease, color 0.2s ease;
-
-  &:hover,
-  &.active {
-    background-color: var(--color-text-primary);
-    color: var(--color-bg-primary);
-  }
-}
-
-/* ── 卡片清單 ── */
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
+.cards-wrapper {
   margin-top: 60px;
+  width: 100%;
+  overflow: hidden;
 }
 
-.cards .card {
+.cards-track {
+  display: flex;
+  gap: 20px;
+  transition: transform 0.4s ease-out;
+  will-change: transform;
+}
+
+.work-carousel-item {
+  flex: 0 0 calc((100% - 40px) / 3);
+  box-sizing: border-box;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card {
   min-height: 60vh;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   margin: 0;
+  width: 100%;
 
-  /* 修正：rgba() 改用 RGB 分量變數 */
   background-color: rgba(var(--color-bg-primary-rgb), 0.8);
   backdrop-filter: blur(2px);
-
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 
   &:hover {
     background-color: var(--color-bg-secondary);
-    transform: translateY(-2px) scale(1.02);
+    transform: translateY(-5px) scale(1.01);
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
   }
 }
@@ -74,8 +59,4 @@
   overflow-y: auto;
   display: flex;
   flex-direction: column;
-
-  .card-text:last-child {
-    margin-top: auto;
-  }
 }

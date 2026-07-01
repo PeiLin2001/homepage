@@ -7,6 +7,7 @@
   font-size: 24px;
   font-weight: 500;
   padding: 10px;
+  margin: 0;
 }
 
 /* ── 文章列表 ── */
@@ -17,8 +18,13 @@
   margin: 0;
 }
 
-.writing-body {
-  margin: 0;                /* 修正：間距改由 writing-block 的 padding 控制，避免雙重 margin */
+/* <li> 取代原本的 .writing-body，間距由 writing-block 的 padding 控制 */
+.writing-list > li {
+  margin: 0;
+}
+
+.writing-block-wrapper {
+  display: block;
 }
 
 .writing-block {

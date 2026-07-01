@@ -1,55 +1,56 @@
 <div class="bg-canvas">
   <img src="./aboutbackground.png" class="bg-canvas" alt="background">
 </div>
-<div class="content">
 
+<main class="content">
   <section class="worksHeader">
     <p class="works-title">works</p>
-
-    <!-- <div class="filter">
-      @for (f of filters; track f) {
-        <button
-          class="works-filter-button"
-          [class.active]="selectedFilter === f"
-          (click)="setFilter(f)">
-          {{ f }}
-        </button>
-      }
-    </div> -->
   </section>
 
-  <section>
-    <button (click)="decreasePage()">left</button>
-    <button (click)="increasePage()">right</button>
+  <section class="carousel-controls">
+    <button
+      type="button"
+      (click)="decreasePage()"
+      [disabled]="startIndex === 0">
+      left
+    </button>
+
+    <button
+      type="button"
+      (click)="increasePage()"
+      [disabled]="startIndex >= works.length - displayedCount">
+      right
+    </button>
   </section>
-  <section class="cards">
-    @for (work of displayedWorks; track work.link) {
-      <a
-        [href]="work.link"
-        target="_blank"
-        rel="noopener noreferrer"
-        class="text-decoration-none text-reset">
 
-        <div class="card mb-3">
-          <img
-            [src]="work.image"
-            class="card-img-top"
-            [alt]="work.title">
+  <section class="cards-wrapper">
+    <div
+      class="cards-track"
+      [style.transform]="transformOffset">
 
-          <div class="card-body">
-            <h5 class="card-title">{{ work.title }}</h5>
-            <p class="card-text">{{ work.description }}</p>
-            <p class="card-text">
-              <small class="text-body-secondary">
-                {{ work.category }}
-              </small>
-            </p>
+      @for (work of works; track work.link) {
+        <a
+          [href]="work.link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="work-carousel-item">
+
+          <div class="card mb-3">
+            <img
+              [src]="work.image"
+              class="card-img-top"
+              [alt]="work.title">
+
+            <div class="card-body">
+              <h5 class="card-title">{{ work.title }}</h5>
+              <p class="card-text">{{ work.description }}</p>
+            </div>
           </div>
-        </div>
-      </a>
-    } @empty {
-      <p class="empty-text">目前沒有作品。</p>
-    }
+        </a>
+      } @empty {
+        <p class="empty-text">目前沒有作品。</p>
+      }
+
+    </div>
   </section>
-</div>
-<!-- the end of content -->
+</main>
