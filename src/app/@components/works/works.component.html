@@ -6,7 +6,7 @@
   <section class="worksHeader">
     <p class="works-title">works</p>
 
-    <div class="filter">
+    <!-- <div class="filter">
       @for (f of filters; track f) {
         <button
           class="works-filter-button"
@@ -15,11 +15,15 @@
           {{ f }}
         </button>
       }
-    </div>
+    </div> -->
   </section>
 
+  <section>
+    <button (click)="decreasePage()">left</button>
+    <button (click)="increasePage()">right</button>
+  </section>
   <section class="cards">
-    @for (work of filteredWorks; track work.link) {
+    @for (work of displayedWorks; track work.link) {
       <a
         [href]="work.link"
         target="_blank"
