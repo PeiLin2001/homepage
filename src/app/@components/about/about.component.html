@@ -1,106 +1,98 @@
-<div class="bg-canvas">
-  <img src="./aboutbackground.png" class="bg-canvas">
+<div class="bg-canvas" aria-hidden="true">
+  <img src="./aboutbackground.png" alt="">
 </div>
 
-<div class="content">
-  <section class="about-header">
+<main class="content">
+
+  <!-- ── header ─────────────────────── -->
+  <header class="about-header">
+
     <div class="about-left">
       <p class="about-title">About me</p>
       <h1 class="name">Peilin<br>Li</h1>
 
-      <a href="https://www.google.com/maps/place/Taiwan" class="text-decoration-none text-reset" target="_blank"
-        rel="noopener noreferrer">
-        <div class="loc-tag">
-          <span class="dots"></span>Asia, Taiwan
-        </div>
+      <a class="loc-tag"
+         href="https://www.google.com/maps/place/Taiwan"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="所在地：亞洲，台灣（開啟 Google Maps）">
+        <span class="dots" aria-hidden="true"></span>
+        Asia, Taiwan
       </a>
-
     </div>
+
     <div class="about-right">
-      <span class="email">
-        <span class="material-symbols-outlined">mark_email_unread</span>
+      <address class="email">
+        <!-- icon -->
+        <span class="material-symbols-outlined"
+         aria-hidden="true">mark_email_unread</span>
+
         <a href="mailto:a0936856077@gmail.com">a0936856077&#64;gmail.com</a>
-      </span>
-      <p class="bio">Trained in science, shaped by design,now <br>
+      </address>
+
+      <p class="bio">
+        Trained in science, shaped by design, now<br>
         building in code. I learn fast, think deeply,<br>
         and always refine without compromise.
       </p>
     </div>
-  </section>
 
-  <section class="middle">
-    <p class="section-label">information</p>
-    <section class="info-grid">
-      <div class="info-cell" id="education">
-        <h4 class="cell-title">Education</h4>
-        <p class="cell-body">
-          Bachelor of Science <br>
-          National Tsing Hua University
-        </p>
-      </div>
-      <div class="info-cell" id="future-goal">
-        <h4 class="cell-title">Future goal</h4>
-        <p class="cell-body">
-          Design a self-directed life —
-          with the freedom to choose, and the discipline to
-          continuously refine both my work and myself.
-        </p>
-      </div>
-      <div class="info-cell" id="skill">
-        <h4 class="cell-title">Skill</h4>
-        <p class="cell-body">web developer<br>graphic design<br>paint</p>
-      </div>
-      <div class="info-cell" id="hobby">
-        <h4 class="cell-title">Hobby</h4>
-        <p class="cell-body">Play the guitar<br>Drawing something<br>Talk shit</p>
-      </div>
-      <div class="info-cell" id="language">
-        <h4 class="cell-title">Language</h4>
-        <div class="language">
-          <div class="lang-row">
-            <span class="lang-name">Chinese</span>
-            <div class="lang-bar">
-              <div class="lang-fill" style="width: 100%;"></div>
-            </div>
-          </div>
-          <div class="lang-row">
-            <span class="lang-name">English</span>
-            <div class="lang-bar">
-              <div class="lang-fill" style="width: 70%;"></div>
-            </div>
-          </div>
-          <div class="lang-row">
-            <span class="lang-name">Japanese</span>
-            <div class="lang-bar">
-              <div class="lang-fill" style="width: 20%;"></div>
-            </div>
-          </div>
+  </header>
+
+  <section class="middle" aria-labelledby="info-heading">
+    <p class="section-label" id="info-heading" aria-label="個人資訊">information</p>
+
+    <dl class="info-grid">
+      @for (cell of infoCells; track cell.id) {
+        <div class="info-cell" [id]="cell.id">
+          <dt class="cell-title">{{ cell.title }}</dt>
+
+          @if (cell.body) {
+            <dd class="cell-body">
+              @for (line of lines(cell.body); track $index) {
+                {{ line }}<br>
+              }
+            </dd>
+          }
+
+          <!-- 語言進度條格 -->
+          @if (cell.languages) {
+            <dd class="cell-body language">
+              @for (lang of cell.languages; track lang.name) {
+                <div class="lang-row">
+                  <span class="lang-name">{{ lang.name }}</span>
+                  <div class="lang-bar"
+                       role="meter"
+                       [attr.aria-valuenow]="lang.level"
+                       aria-valuemin="0"
+                       aria-valuemax="100"
+                       [attr.aria-label]="lang.name + ' fluency ' + lang.level + '%'">
+                    <div class="lang-fill" [style.width.%]="lang.level"></div>
+                  </div>
+                </div>
+              }
+            </dd>
+          }
         </div>
-      </div>
-    </section>
+      }
+    </dl>
   </section>
 
-  <section class="experience">
-    <p class="section-label">experience</p>
-    <div class="exp-item">
-      <span class="exp-time">now</span>
-      <div class="exp-body">
-        <h4 class="exp-title">Developer</h4>
-        <p class="exp-desc">I’m committed to deepening my knowledge of computer science, building reliable professional
-          expertise, achieving financial independence, and becoming someone who can solve problems independently while
-          taking full responsibility for my work.</p>
-      </div>
-    </div>
-    <div class="exp-item">
-      <span class="exp-time">-2025/09</span>
-      <div class="exp-body">
-        <h4 class="exp-title">Graphic designer</h4>
-        <p class="exp-desc">
-          After graduating, I followed my interest in graphic design and spent about a year gaining hands-on
-          experience.During this time, I refined my skills and adapted to the professional environment.Over time,
-          however, I realized that my abilities could be applied more broadly and had yet to be fully realized.
-        </p>
-      </div>
-    </div>
+  <section class="experience" aria-labelledby="exp-heading">
+    <p class="section-label" id="exp-heading" aria-label="工作經歷">experience</p>
+
+    <ol>
+      @for (exp of experiences; track exp.datetime) {
+        <li class="exp-item">
+          <time class="exp-time" [attr.datetime]="exp.datetime">{{ exp.period }}</time>
+          <article class="exp-body">
+            <h2 class="exp-title">{{ exp.title }}</h2>
+            <p class="exp-desc">{{ exp.description }}</p>
+          </article>
+        </li>
+      }
+    </ol>
+
   </section>
-</div> <!-- the end of content -->
+
+</main>
