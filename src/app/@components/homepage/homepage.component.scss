@@ -1,94 +1,68 @@
-.active{
-    margin: 80px;
+/* homepage.component.scss */
+/* reset 與 :root 已移至全域 styles.scss，此處不重複宣告 */
+
+.active {
+  margin: 80px;
 }
 
-.Helloworld{
-    font-weight: 600;
-    font-size: 24px;
-    color: var(--color-text-tertiary);
+.content {
+  position: relative;
+  z-index: 5;
 }
 
-h1{
-    margin-top: 32px;
-    margin-bottom: 36px;
-    max-width: 500px;
-
-    font-size: 60px;
-    font-weight: 600;
-    color: var(--color-text-primary);
+.hello-world {                /* 修正：class 名稱從 .Helloworld 改為 kebab-case */
+  font-weight: 600;
+  font-size: 24px;
+  color: var(--color-text-tertiary);
 }
 
-.subtitle{
-    font-size: 24px;
-    font-weight: 300;
-    text-transform: uppercase;
-
-    color: var(--color-text-secondary);
-    max-width: 400px;
-    margin-bottom: 45px;
+h1 {
+  margin-top: 32px;
+  margin-bottom: 36px;
+  max-width: 500px;
+  font-size: 60px;
+  font-weight: 600;
+  color: var(--color-text-primary);
 }
 
-.content
-{
-    position: relative;
-    z-index: 5;
+.subtitle {
+  font-size: 24px;
+  font-weight: 300;
+  text-transform: uppercase;
+  color: var(--color-text-secondary);
+  max-width: 400px;
+  margin-bottom: 45px;
 }
 
-.cta{
-    color: var(--color-text-primary);
-
-    font-size: 18px;
-    font-weight: 500;
-
-    appearance: none;
-    -webkit-appearance: none;
-    outline: none;
-
-    border-style: solid;
-    border-width: 1px;
-
-    border-radius: var(--radius-md);
-    padding: 15px;
-
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    background-color: var(--color-bg-primary);
-    border-color: var(--color-border);
-
-    cursor: pointer;
+.cta-wrapper {
+  display: flex;
+  gap: 0.3rem;
 }
 
-.cta:hover{
+.cta {
+  color: var(--color-text-primary);
+  font-size: 18px;
+  font-weight: 500;
+
+  appearance: none;
+  -webkit-appearance: none;
+  outline: none;
+
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 15px;
+
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  background-color: var(--color-bg-primary);
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
     background-color: var(--color-text-primary);
     border-color: transparent;
     color: var(--color-bg-primary);
+  }
 }
-
-.bg-canvas{
-    display: flex;
-    justify-content: space-between;
-    z-index: -1;
-    position: absolute;
-    top: 0;
-    width:100%;
-}
-
-#nav-placeholder{
-    height: 60px;
-    background-color: transparent;
-}
-
-.cta-wrapper{
-  display: flex;
-  gap: .3rem;
-  // justify-content: space-between;
-  padding: 0;
-  outline: none;
-  color: none;
-  // width: fit-content;
-}
-
-

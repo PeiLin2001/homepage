@@ -1,24 +1,27 @@
-<div class="bg-canvas">
-  <img src="background (2).png" class="bg-canvas">
+<div class="bg-canvas" aria-hidden="true">
+  <img src="background (2).png" alt="">
 </div>
-<section class="active">
+
+<main class="active">
   <div class="content">
-    <span class="Helloworld">:Hello, world!</span>
+    <!-- 修正：class 名稱改為 kebab-case .hello-world -->
+    <span class="hello-world" aria-hidden="true">:Hello, world!</span>
+
     <h1>
       Always learning, <br>
       keep creating,<br>
       and Stay <br>
       independent.
     </h1>
-    <h3 class="subtitle">
+
+    <p class="subtitle">
       an undefined individual — <br>
       A developer, designer, artist.
-    </h3>
+    </p>
 
     <div class="cta-wrapper">
-      <button class="cta" value="works" [routerLink]="['/works']">view works</button>
-      <button class="cta" value="about" [routerLink]="['/about']">read more</button>
+      <button class="cta" [routerLink]="['/works']">view works</button>
+      <button class="cta" [routerLink]="['/about']">read more</button>
     </div>
-
   </div>
-</section>
+</main>

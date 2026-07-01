@@ -1,4 +1,31 @@
-/* You can add global styles to this file, and also import other style files */
+// /* You can add global styles to this file, and also import other style files */
+// *,
+// *::before,
+// *::after {
+//   box-sizing: border-box;
+//   margin: 0;
+//   padding: 0;
+// }
+
+// :root {
+//   --color-text-primary: #1a1a1a;
+//   --color-text-secondary: #888;
+//   --color-text-tertiary: #bbb;
+//   --color-border: #e5e5e5;
+//   --color-bg-primary: #ffffff;
+//   --color-bg-secondary: #f7f7f5;
+
+//   --font-sans: "Inter", sans-serif;
+//   --radius-md: 8px;
+//   --radius-lg: 12px;
+// }
+
+// body {
+//   font-family: "Inter", sans-serif;
+//   font-optical-sizing: auto;
+//   font-style: normal;
+// }
+
 *,
 *::before,
 *::after {
@@ -11,18 +38,40 @@
   --color-text-primary: #1a1a1a;
   --color-text-secondary: #888;
   --color-text-tertiary: #bbb;
+
   --color-border: #e5e5e5;
+
   --color-bg-primary: #ffffff;
   --color-bg-secondary: #f7f7f5;
 
+  --color-bg-primary-rgb: 255, 255, 255;
+  --color-bg-secondary-rgb: 247, 247, 245;
+
   --font-sans: "Inter", sans-serif;
+
   --radius-md: 8px;
   --radius-lg: 12px;
 }
 
 body {
-  font-family: "Inter", sans-serif;
+  font-family: var(--font-sans);
   font-optical-sizing: auto;
   font-style: normal;
+  color: var(--color-text-primary);
+  background-color: var(--color-bg-primary);
 }
 
+// 背景通用樣式
+.bg-canvas {
+  display: flex;
+  justify-content: space-between;
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+  img {
+    width: 100%;
+    object-fit: cover;
+  }
+}
