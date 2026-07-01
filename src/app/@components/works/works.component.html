@@ -1,52 +1,51 @@
 <div class="bg-canvas">
-  <img src="./aboutbackground.png" class="bg-canvas">
+  <img src="./aboutbackground.png" class="bg-canvas" alt="background">
 </div>
-
 <div class="content">
+
   <section class="worksHeader">
     <p class="works-title">works</p>
+
     <div class="filter">
-      <button class="works-filter-button">all</button>
-      <button class="works-filter-button">web</button>
-      <button class="works-filter-button">graphic</button>
-      <button class="works-filter-button">art</button>
+      @for (f of filters; track f) {
+        <button
+          class="works-filter-button"
+          [class.active]="selectedFilter === f"
+          (click)="setFilter(f)">
+          {{ f }}
+        </button>
+      }
     </div>
   </section>
+
   <section class="cards">
+    @for (work of filteredWorks; track work.link) {
+      <a
+        [href]="work.link"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="text-decoration-none text-reset">
 
-    <a href="./index.html" class="text-decoration-none text-reset">
-      <div class="card mb-3">
-        <img src="./homepage.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Homepage</h5>
-          <p class="card-text">This is my first website!</p>
-          <p class="card-text"><small class="text-body-secondary">web</small></p>
+        <div class="card mb-3">
+          <img
+            [src]="work.image"
+            class="card-img-top"
+            [alt]="work.title">
+
+          <div class="card-body">
+            <h5 class="card-title">{{ work.title }}</h5>
+            <p class="card-text">{{ work.description }}</p>
+            <p class="card-text">
+              <small class="text-body-secondary">
+                {{ work.category }}
+              </small>
+            </p>
+          </div>
         </div>
-      </div>
-    </a>
-
-    <a href="https://docs.google.com/document/d/1JgwiUUQ_q5qlWQYFgQDBq5CkWN5QpJiFFgbg2nAHYKc/edit?usp=sharing"
-      class="text-decoration-none text-reset">
-      <div class="card mb-3">
-        <img src="./questionnare.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Dynamic questionnare</h5>
-          <p class="card-text">This is my first website!</p>
-          <p class="card-text"><small class="text-body-secondary">web</small></p>
-        </div>
-      </div>
-    </a>
-
-    <a href="https://project2-weather.vercel.app/weatherAPI" class="text-decoration-none text-reset">
-      <div class="card mb-3">
-        <img src="./weather.png" class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">Weather</h5>
-          <p class="card-text">A weather website of Kaoshung Taiwan.Using Angular.</p>
-          <p class="card-text"><small class="text-body-secondary">web</small></p>
-        </div>
-      </div>
-    </a>
-
+      </a>
+    } @empty {
+      <p class="empty-text">目前沒有作品。</p>
+    }
   </section>
-</div><!-- the end of content -->
+</div>
+<!-- the end of content -->

@@ -1,6 +1,3 @@
-/* homepage.component.scss */
-/* reset 與 :root 已移至全域 styles.scss，此處不重複宣告 */
-
 .active {
   margin: 80px;
 }
@@ -10,7 +7,7 @@
   z-index: 5;
 }
 
-.hello-world {                /* 修正：class 名稱從 .Helloworld 改為 kebab-case */
+.hello-world {
   font-weight: 600;
   font-size: 24px;
   color: var(--color-text-tertiary);
