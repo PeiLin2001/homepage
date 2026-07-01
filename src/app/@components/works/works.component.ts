@@ -2,12 +2,14 @@ import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 type Category = 'front-end' | 'fullstack';
+type Project = 'Independent Study' | 'Team Project';
 
 interface Work {
   title: string;
   description: string;
   date: Date;
   category: Category;
+  projectType: Project;
   image: string;
   link: string;
 }
@@ -24,24 +26,27 @@ export class WorksComponent {
     {
       title: 'Homepage',
       description: 'This is my first website!',
-      date: new Date(2026, 4, 1),
+      date: new Date(2026, 5, 1),
       category: 'front-end',
+      projectType: 'Independent Study',
       image: './homepage.png',
       link: './index.html',
     },
     {
       title: 'Dynamic questionnaire',
-      description: '動態問卷系統，支援使用者填答與管理員後台結果統計。',
+      description: 'This is a dynamic questionnare system, support to ',
       date: new Date(2026, 4, 1),
       category: 'fullstack',
+      projectType: 'Independent Study',
       image: './questionnare.png',
       link: 'https://docs.google.com/document/d/1JgwiUUQ_q5qlWQYFgQDBq5CkWN5QpJiFFgbg2nAHYKc/edit?usp=sharing',
     },
     {
       title: 'Weather',
       description: 'A weather website of Kaohsiung Taiwan. Using Angular.',
-      date: new Date(2026, 4, 1),
+      date: new Date(2026, 2, 14),
       category: 'front-end',
+      projectType: 'Independent Study',
       image: './weather.png',
       link: 'https://project2-weather.vercel.app/weatherAPI',
     },
@@ -49,8 +54,9 @@ export class WorksComponent {
       title: '二手Go',
       description:
         '大學生校園二手交易媒合平台，擔任 5 人全端團隊 Project Lead，負責前端架構、Angular 開發與 Spring Boot API 整合。',
-      date: new Date(2026, 4, 1),
+      date: new Date(2026, 6, 25),
       category: 'fullstack',
+      projectType: 'Team Project',
       image: './secondhandgo.png',
       link: 'https://peilin2001.github.io/second-hand-go-frontend/#/home',
     },
@@ -84,8 +90,11 @@ export class WorksComponent {
     return `translateX(calc(-${movePercent}% - ${movePx}px))`;
   }
 
-  get displayedWorks(): Work[] {
-    const endIndex = this.startIndex + this.displayedCount;
-    return this.works.slice(this.startIndex, endIndex);
+  get sortedWorks(): Work[] {
+    return [...this.works].sort((a, b) => b.date.getTime() - a.date.getTime());
+  }
+
+  get maxStartIndex(): number {
+    return Math.max(this.sortedWorks.length - this.displayedCount, 0);
   }
 }

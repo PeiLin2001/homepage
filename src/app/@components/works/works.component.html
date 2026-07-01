@@ -3,52 +3,47 @@
 </div>
 
 <main class="content">
-  <section class="worksHeader">
-    <p class="works-title">works</p>
-  </section>
+  <header class="worksHeader">
+    <h2 class="title">works</h2>
+  </header>
 
   <section class="carousel-controls">
-    <button
-      type="button"
-      (click)="decreasePage()"
-      [disabled]="startIndex === 0">
+    <button type="button" (click)="decreasePage()" [disabled]="startIndex === 0">
       left
     </button>
 
-    <button
-      type="button"
-      (click)="increasePage()"
-      [disabled]="startIndex >= works.length - displayedCount">
+    <button type="button" (click)="increasePage()" [disabled]="startIndex >= works.length - displayedCount">
       right
     </button>
   </section>
 
   <section class="cards-wrapper">
-    <div
-      class="cards-track"
-      [style.transform]="transformOffset">
+    <div class="cards-track" [style.transform]="transformOffset">
 
-      @for (work of works; track work.link) {
-        <a
-          [href]="work.link"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="work-carousel-item">
+      @for (work of sortedWorks; track work.link) {
+      <a [href]="work.link" target="_blank" rel="noopener noreferrer" class="work-carousel-item">
 
-          <div class="card mb-3">
-            <img
-              [src]="work.image"
-              class="card-img-top"
-              [alt]="work.title">
+        <div class="card">
+          <div class="card-image-wrap">
+            <img [src]="work.image" class="card-img-top" [alt]="work.title">
+          </div>
 
-            <div class="card-body">
+          <div class="card-body">
+            <div class="card-content">
               <h5 class="card-title">{{ work.title }}</h5>
               <p class="card-text">{{ work.description }}</p>
             </div>
+
+            <div class="card-meta">
+              <span>{{ work.category }}</span>
+              <span class="meta-separator">|</span>
+              <span>{{ work.projectType }}</span>
+            </div>
           </div>
-        </a>
+        </div>
+      </a>
       } @empty {
-        <p class="empty-text">目前沒有作品。</p>
+      <p class="empty-text">目前沒有作品。</p>
       }
 
     </div>

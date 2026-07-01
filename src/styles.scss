@@ -57,3 +57,16 @@ body {
   position: relative;
   z-index: 5;
 }
+
+.title{
+  color: var(--color-text-secondary);
+  font-size: 24px;
+  font-weight: 500;
+  margin: 0 0 20px 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
