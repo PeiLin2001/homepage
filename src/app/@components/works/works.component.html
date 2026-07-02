@@ -1,36 +1,45 @@
 <div class="bg-canvas">
-  <img src="./aboutbackground.png" class="bg-canvas" alt="background">
+  <img src="./workbackground.png" class="bg-canvas" alt="background">
 </div>
 
 <main class="content">
-  <header class="worksHeader">
-    <h2 class="title">works</h2>
+  <header class="worksHeader page-header">
+    <h2 class="page-title">works</h2>
+    <div class="page-title-decoration" aria-hidden="true">
+      <span class="dot-line"></span>
+      <span class="triangle"></span>
+      <span class="dot-line"></span>
+    </div>
   </header>
 
-  <section class="carousel-controls">
-    <button type="button" (click)="decreasePage()" [disabled]="startIndex === 0">
-      left
-    </button>
-
-    <button type="button" (click)="increasePage()" [disabled]="startIndex >= works.length - displayedCount">
-      right
-    </button>
-  </section>
-
   <section class="cards-wrapper">
+
+    <button type="button" class="btn carousel-btn-left" (click)="decreasePage()" [disabled]="startIndex === 0"
+      aria-label="last page">
+      <span class="material-symbols-outlined">
+        chevron_left
+      </span>
+    </button>
+
+    <button type="button" class="btn carousel-btn-right" (click)="increasePage()"
+      [disabled]="startIndex >= works.length - displayedCount" aria-label="next page">
+      <span class="material-symbols-outlined">
+        chevron_right
+      </span>
+    </button>
+
     <div class="cards-track" [style.transform]="transformOffset">
-
       @for (work of sortedWorks; track work.link) {
-      <a [href]="work.link" target="_blank" rel="noopener noreferrer" class="work-carousel-item">
-
+      <a [href]="work.link" target="_blank" rel="noopener noreferrer" class="work-carousel-item" title="demo">
         <div class="card">
+
           <div class="card-image-wrap">
             <img [src]="work.image" class="card-img-top" [alt]="work.title">
           </div>
 
           <div class="card-body">
-            <div class="card-content">
-              <h5 class="card-title">{{ work.title }}</h5>
+            <h5 class="card-title">{{ work.title }}</h5>
+            <div class="card-text-wrapper">
               <p class="card-text">{{ work.description }}</p>
             </div>
 
@@ -40,12 +49,13 @@
               <span>{{ work.projectType }}</span>
             </div>
           </div>
+
         </div>
       </a>
       } @empty {
-      <p class="empty-text">目前沒有作品。</p>
+      <p class="empty-text">There are no works yet.</p>
       }
-
     </div>
+
   </section>
 </main>

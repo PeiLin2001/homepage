@@ -5,75 +5,75 @@
 <main class="content">
 
   <!-- ── header ─────────────────────── -->
-  <header class="about-header">
+  <header class="about-header page-header">
+    <h2 class="page-title">About me</h2>
+    <div class="page-title-decoration about-title-decoration" aria-hidden="true">
+      <span class="dot-line"></span>
+      <span class="triangle"></span>
+      <span class="dot-line"></span>
+    </div>
+  </header>
+
+  <section class="brief-information">
 
     <div class="about-left">
-      <h2 class="title">About me</h2>
       <h1 class="name">Peilin<br>Li</h1>
 
-      <a class="loc-tag"
-         href="https://www.google.com/maps/place/Taiwan"
-         target="_blank"
-         rel="noopener noreferrer"
-         aria-label="所在地：亞洲，台灣（開啟 Google Maps）">
+      <a class="loc-tag" href="https://www.google.com/maps/place/Taiwan" target="_blank" rel="noopener noreferrer"
+        aria-label="Asia, Taiwan">
         <span class="dots" aria-hidden="true"></span>
         Asia, Taiwan
       </a>
     </div>
 
     <div class="about-right">
-      <address class="email">
-        <!-- icon -->
-        <span class="material-symbols-outlined"
-         aria-hidden="true">mark_email_unread</span>
-
-        <a href="mailto:a0936856077@gmail.com">a0936856077&#64;gmail.com</a>
-      </address>
-
       <p class="bio">
         Trained in science, shaped by design, now<br>
         building in code. I learn fast, think deeply,<br>
         and always refine without compromise.
       </p>
+
+      <address class="email">
+        <!-- icon -->
+        <span class="material-symbols-outlined" aria-hidden="true">mark_email_unread</span>
+
+        <a href="mailto:a0936856077@gmail.com">a0936856077&#64;gmail.com</a>
+      </address>
     </div>
 
-  </header>
+  </section>
 
   <section class="middle" aria-labelledby="info-heading">
     <p class="section-label" id="info-heading" aria-label="個人資訊">information</p>
 
     <dl class="info-grid">
       @for (cell of infoCells; track cell.id) {
-        <div class="info-cell" [id]="cell.id">
-          <dt class="cell-title">{{ cell.title }}</dt>
+      <div class="info-cell" [id]="cell.id">
+        <dt class="cell-title">{{ cell.title }}</dt>
 
-          @if (cell.body) {
-            <dd class="cell-body">
-              @for (line of lines(cell.body); track $index) {
-                {{ line }}<br>
-              }
-            </dd>
+        @if (cell.body) {
+        <dd class="cell-body">
+          @for (line of lines(cell.body); track $index) {
+          {{ line }}<br>
           }
+        </dd>
+        }
 
-          <!-- language -->
-          @if (cell.languages) {
-            <dd class="cell-body language">
-              @for (lang of cell.languages; track lang.name) {
-                <div class="lang-row">
-                  <span class="lang-name">{{ lang.name }}</span>
-                  <div class="lang-bar"
-                       role="meter"
-                       [attr.aria-valuenow]="lang.level"
-                       aria-valuemin="0"
-                       aria-valuemax="100"
-                       [attr.aria-label]="lang.name + ' fluency ' + lang.level + '%'">
-                    <div class="lang-fill" [style.width.%]="lang.level"></div>
-                  </div>
-                </div>
-              }
-            </dd>
+        <!-- language -->
+        @if (cell.languages) {
+        <dd class="cell-body language">
+          @for (lang of cell.languages; track lang.name) {
+          <div class="lang-row">
+            <span class="lang-name">{{ lang.name }}</span>
+            <div class="lang-bar" role="meter" [attr.aria-valuenow]="lang.level" aria-valuemin="0" aria-valuemax="100"
+              [attr.aria-label]="lang.name + ' fluency ' + lang.level + '%'">
+              <div class="lang-fill" [style.width.%]="lang.level"></div>
+            </div>
+          </div>
           }
-        </div>
+        </dd>
+        }
+      </div>
       }
     </dl>
   </section>
@@ -83,13 +83,13 @@
 
     <ol>
       @for (exp of experiences; track exp.datetime) {
-        <li class="exp-item">
-          <time class="exp-time" [attr.datetime]="exp.datetime">{{ exp.period }}</time>
-          <article class="exp-body">
-            <h2 class="exp-title">{{ exp.title }}</h2>
-            <p class="exp-desc">{{ exp.description }}</p>
-          </article>
-        </li>
+      <li class="exp-item">
+        <time class="exp-time" [attr.datetime]="exp.datetime">{{ exp.period }}</time>
+        <article class="exp-body">
+          <h2 class="exp-title">{{ exp.title }}</h2>
+          <p class="exp-desc">{{ exp.description }}</p>
+        </article>
+      </li>
       }
     </ol>
 

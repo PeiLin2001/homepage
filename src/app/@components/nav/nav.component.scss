@@ -18,7 +18,7 @@
   padding-right: 80px;
 }
 
-.nav-body{
+.nav-body {
   display: flex;
   align-items: center;
   height: 100%;
@@ -39,6 +39,7 @@
 .nav-btn:hover {
   color: var(--color-text-primary);
   background-color: var(--color-bg-secondary);
+  mix-blend-mode: multiply;
 }
 
 .nav-btn::after {

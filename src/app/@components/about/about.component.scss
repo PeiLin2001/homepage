@@ -5,14 +5,23 @@
 // --------- header ---------
 
 .about-header {
+  margin-bottom: 80px;
+}
+
+// --------- brief information ---------
+
+.brief-information {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
   margin-bottom: 108px;
 }
 
-.title {
-  color: var(--color-text-secondary);
-  font-size: 24px;
-  font-weight: 500;
-  margin: 0;
+.about-left {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
 }
 
 .name {
@@ -22,6 +31,7 @@
   margin-top: 16px;
   margin-bottom: 8px;
 }
+
 .loc-tag {
   display: inline-flex;
   align-items: center;
@@ -34,13 +44,17 @@
   font-size: 24px;
   font-weight: 500;
 
-  /* 修正：rgba() 改用 RGB 分量變數 */
   background-color: rgba(var(--color-bg-primary-rgb), 0.3);
   border: 0.5px solid var(--color-border);
   backdrop-filter: blur(1px);
 
   cursor: pointer;
   text-decoration: none;
+
+  &:hover{
+    background-color: var(--color-text-primary);
+    color: white;
+  }
 }
 
 .dots {
@@ -59,7 +73,6 @@
 }
 
 .email {
-  margin-bottom: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,6 +107,7 @@
   font-size: 32px;
   font-weight: 300;
   text-align: right;
+  margin-bottom: 24px;
 
   /* 修正：rgba() 改用 RGB 分量變數 */
   background-color: rgba(var(--color-bg-primary-rgb), 0.3);
@@ -165,7 +179,6 @@
   line-height: 1.7;
 }
 
-/* 語言進度條 */
 .lang-row {
   display: flex;
   align-items: center;
@@ -194,16 +207,13 @@
   border-radius: 99px;
 }
 
-/* ── 下段：Experience ── */
 
 .experience {
   position: relative;
 
-  /* 修正：rgba() 改用 RGB 分量變數 */
   background-color: rgba(var(--color-bg-primary-rgb), 0.3);
   backdrop-filter: blur(1px);
 
-  /* 時間軸線 */
   &::before {
     content: "";
     position: absolute;

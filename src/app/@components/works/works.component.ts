@@ -25,7 +25,7 @@ export class WorksComponent {
   works: Work[] = [
     {
       title: 'Homepage',
-      description: 'This is my first website!',
+      description: 'A personal introduction page built from scratch to practice core front-end fundamentals — semantic HTML structure, CSS layout, and responsive design.',
       date: new Date(2026, 5, 1),
       category: 'front-end',
       projectType: 'Independent Study',
@@ -34,7 +34,7 @@ export class WorksComponent {
     },
     {
       title: 'Dynamic questionnaire',
-      description: 'This is a dynamic questionnare system, support to ',
+      description: 'A full-stack questionnaire platform built with Angular and Spring Boot, featuring role-based authentication, protected routing, and survey result analytics.',
       date: new Date(2026, 4, 1),
       category: 'fullstack',
       projectType: 'Independent Study',
@@ -43,7 +43,7 @@ export class WorksComponent {
     },
     {
       title: 'Weather',
-      description: 'A weather website of Kaohsiung Taiwan. Using Angular.',
+      description: 'A responsive weather forecast app for Kaohsiung, Taiwan, built with Angular and integrated with a public weather API to display real-time conditions.',
       date: new Date(2026, 2, 14),
       category: 'front-end',
       projectType: 'Independent Study',
@@ -53,7 +53,7 @@ export class WorksComponent {
     {
       title: '二手Go',
       description:
-        '大學生校園二手交易媒合平台，擔任 5 人全端團隊 Project Lead，負責前端架構、Angular 開發與 Spring Boot API 整合。',
+        'Campus Second-Hand Trading Matching Platform for University Students — Served as Project Lead of a five-member full-stack team, leading frontend architecture design and Angular development. Designed URL-driven filter state management, established an SCSS Design Token system, and integrated Spring Boot RESTful APIs.',
       date: new Date(2026, 6, 25),
       category: 'fullstack',
       projectType: 'Team Project',
@@ -89,6 +89,7 @@ export class WorksComponent {
 
     return `translateX(calc(-${movePercent}% - ${movePx}px))`;
   }
+
 
   get sortedWorks(): Work[] {
     return [...this.works].sort((a, b) => b.date.getTime() - a.date.getTime());
